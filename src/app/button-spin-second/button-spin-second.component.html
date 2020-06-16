@@ -1,1 +1,23 @@
-<p>button-spin-second works!</p>
+<button
+  color="primary"
+  mat-raised-button
+  (click)="onClick()"
+  [disabled]="buttonIsDisabled"
+>
+  First button
+  <app-spinner
+    *ngIf="loading"
+    class="inline-flex"
+  >
+  </app-spinner>
+  <ng-lottie
+    *ngIf="loaded"
+    class="inline-flex"
+    width="35px"
+    height="35px"
+    [options]="options"
+    (complete)="onComplete()"
+    (animationCreated)="animationCreated($event)"
+  >
+  </ng-lottie>
+</button>
